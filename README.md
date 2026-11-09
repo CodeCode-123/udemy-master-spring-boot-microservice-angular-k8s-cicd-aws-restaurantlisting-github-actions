@@ -1,1 +1,1 @@
-# udemy-master-spring-boot-microservice-angular-k8s-cicd-aws-restaurantlisting
+# udemy-master-spring-boot-microservice-angular-k8s-cicd-aws-restaurantlisting-github-actions
