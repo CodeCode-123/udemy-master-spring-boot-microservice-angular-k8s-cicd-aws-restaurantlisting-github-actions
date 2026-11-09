@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RestaurantDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report"></a> &gt; <a href="index.source.html" class="el_package">com.codecode.restaurantlisting.dto</a> &gt; <span class="el_source">RestaurantDTO.java</span></div><h1>RestaurantDTO.java</h1><pre class="source lang-java linenums">package com.codecode.restaurantlisting.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+public class RestaurantDTO {
+
+    private int id;
+    private String name;
+    private String address;
+    private String city;
+    private String restaurantDescription;
+
+<span class="fc" id="L16">    public RestaurantDTO() {</span>
+<span class="fc" id="L17">    }</span>
+
+<span class="fc" id="L19">    public RestaurantDTO(String name, String address, String city, String restaurantDescription) {</span>
+<span class="fc" id="L20">        this.name = name;</span>
+<span class="fc" id="L21">        this.address = address;</span>
+<span class="fc" id="L22">        this.city = city;</span>
+<span class="fc" id="L23">        this.restaurantDescription = restaurantDescription;</span>
+<span class="fc" id="L24">    }</span>
+
+<span class="fc" id="L26">    public RestaurantDTO(int id, String name, String address, String city, String restaurantDescription) {</span>
+<span class="fc" id="L27">        this.id = id;</span>
+<span class="fc" id="L28">        this.name = name;</span>
+<span class="fc" id="L29">        this.address = address;</span>
+<span class="fc" id="L30">        this.city = city;</span>
+<span class="fc" id="L31">        this.restaurantDescription = restaurantDescription;</span>
+<span class="fc" id="L32">    }</span>
+
+    public int getId() {
+<span class="fc" id="L35">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L39">        this.id = id;</span>
+<span class="fc" id="L40">    }</span>
+
+    public String getName() {
+<span class="fc" id="L43">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="fc" id="L47">        this.name = name;</span>
+<span class="fc" id="L48">    }</span>
+
+    public String getAddress() {
+<span class="fc" id="L51">        return address;</span>
+    }
+
+    public void setAddress(String address) {
+<span class="fc" id="L55">        this.address = address;</span>
+<span class="fc" id="L56">    }</span>
+
+    public String getCity() {
+<span class="fc" id="L59">        return city;</span>
+    }
+
+    public void setCity(String city) {
+<span class="fc" id="L63">        this.city = city;</span>
+<span class="fc" id="L64">    }</span>
+
+    public String getRestaurantDescription() {
+<span class="fc" id="L67">        return restaurantDescription;</span>
+    }
+
+    public void setRestaurantDescription(String restaurantDescription) {
+<span class="fc" id="L71">        this.restaurantDescription = restaurantDescription;</span>
+<span class="fc" id="L72">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

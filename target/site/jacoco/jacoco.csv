@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+,com.codecode.restaurantlisting.dto,RestaurantDTO,0,71,0,0,0,30,0,13,0,13
+,com.codecode.restaurantlisting,RestaurantlistingApplication,8,0,0,0,3,0,2,0,2,0
+,com.codecode.restaurantlisting.mapper,RestaurantMapperImpl,0,21,0,0,0,7,0,3,0,3
+,com.codecode.restaurantlisting.mapper,RestaurantMapper,0,5,0,0,0,1,0,1,0,1
+,com.codecode.restaurantlisting.entity,Restaurant,0,71,0,0,0,30,0,13,0,13
+,com.codecode.restaurantlisting.service,RestaurantService,0,57,0,2,0,15,0,6,0,5
+,com.codecode.restaurantlisting.controller,RestaurantController,0,32,0,0,0,8,0,4,0,4
