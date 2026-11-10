@@ -44,7 +44,7 @@ jobs:
 #          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
 #          -Dsonar.host.url=http://${{ steps.get_ip.outputs.ip }}:9000 -DDB_USERNAME=root -DDB_PASSWORD=root
     - name: SonarQube Analysis
-      run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar -Dsonar.host.url=https://glacial-gesture-niece.ngrok-free.dev -Dsonar.token=squ_903800015bff43aa5d9b2f8e64d18b21057bfa8f -DDB_USERNAME=root -DDB_PASSWORD=root
+      run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.token=${{ secrets.SONAR_TOKEN }} -DDB_USERNAME=root -DDB_PASSWORD=root
     - name: SonarQube Quality Gate check
       uses: sonarsource/sonarqube-quality-gate-action@v1
       with:
