@@ -31,18 +31,6 @@ jobs:
       run: mvn clean package -DskipTests
     - name: Run Tests
       run: mvn test -DDB_USERNAME=root -DDB_PASSWORD=root
-#    - name: Get Local IP Address
-#      id: get_ip
-#      run: |
-#        echo "ip=$(hostname -I | awk '{print $1}')" >> $GITHUB_OUTPUT
-#    - name: Build and Analyze
-#      env:
-#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#        SONAR_HOST_URL: http://${{ steps.get_ip.outputs.ip }}:9000
-#      run: |
-#        mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar \
-#          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-#          -Dsonar.host.url=http://${{ steps.get_ip.outputs.ip }}:9000 -DDB_USERNAME=root -DDB_PASSWORD=root
     - name: SonarQube Analysis
       run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.token=${{ secrets.SONAR_TOKEN }} -DDB_USERNAME=root -DDB_PASSWORD=root
     - name: SonarQube Quality Gate check
@@ -52,15 +40,3 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Omit if using SonarCloud
-
-#    - name: SonarQube Quality Gate Check
-#      uses: sonarsource/sonarqube-quality-gate-action@v1
-#      with:
-#        pollingTimeoutSec: 600
-#      env:
-#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Omit if using SonarCloud
-
-#    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-#    - name: Update dependency graph
-#      uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
