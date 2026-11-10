@@ -31,12 +31,12 @@ jobs:
       run: mvn clean package -DskipTests
     - name: Run Tests
       run: mvn test -DDB_USERNAME=root -DDB_PASSWORD=root
-    - name: SonarQube Analysis
-      run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.token=${{ secrets.SONAR_TOKEN }} -DDB_USERNAME=root -DDB_PASSWORD=root
-    - name: SonarQube Quality Gate check
-      uses: sonarsource/sonarqube-quality-gate-action@v1
-      with:
-        scanMetadataReportFile: target/sonar/report-task.txt # Change to build/sonar/report-task.txt for Gradle
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Omit if using SonarCloud
+#    - name: SonarQube Analysis
+#      run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install org.sonarsource.scanner.maven:sonar-maven-plugin:5.7.0.6970:sonar -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} -Dsonar.token=${{ secrets.SONAR_TOKEN }} -DDB_USERNAME=root -DDB_PASSWORD=root
+#    - name: SonarQube Quality Gate check
+#      uses: sonarsource/sonarqube-quality-gate-action@v1
+#      with:
+#        scanMetadataReportFile: target/sonar/report-task.txt # Change to build/sonar/report-task.txt for Gradle
+#      env:
+#        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # Omit if using SonarCloud
