@@ -11,7 +11,7 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 actions-runner/
 *.exec
-target/site/jacoco
+*/target/site/jacoco
 
 # Eclipse m2e generated files
 # Eclipse Core
