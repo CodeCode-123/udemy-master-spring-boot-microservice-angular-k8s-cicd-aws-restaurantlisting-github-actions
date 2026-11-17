@@ -15,8 +15,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
-#permissions:
-#  contents: write # Required to push the updated manifest
+permissions:
+  contents: write # Required to push the updated manifest
 
 jobs:
   build:
@@ -24,6 +24,9 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Clean workspace
+      if: always()
+      run: find "$GITHUB_WORKSPACE" -mindepth 1 -delete
     - uses: actions/checkout@v6
     - name: Set up JDK 25
       uses: actions/setup-java@v5
