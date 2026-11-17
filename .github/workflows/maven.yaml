@@ -71,7 +71,7 @@ jobs:
       env:
         NEW_TAG: ${{ steps.meta.outputs.tags }}
       run: |
-        yq -i '.spec.template.spec.containers[0].image = "codecode123/restaurantlisting-arm-cicd-github-actions:" + strenv(NEW_TAG)' restaurantlisting-manifest.yaml
+        yq -i '.spec.template.spec.containers[0].image = strenv(NEW_TAG)' restaurantlisting-manifest.yaml
     - name: Commit and push changes
       working-directory: ../../../../../deployment
       run: |
