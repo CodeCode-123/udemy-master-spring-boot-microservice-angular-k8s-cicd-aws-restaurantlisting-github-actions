@@ -22,10 +22,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-    - name: Add EdgeDriver directory to PATH
-      run: echo "/Users/ada1/Downloads/edgedriver_mac64_m1" >> $GITHUB_PATH
-    - name: Verify EdgeDriver is accessible
-      run: msedgedriver --version
+#    - name: Add EdgeDriver directory to PATH
+#      run: echo "/Users/ada1/Downloads/edgedriver_mac64_m1" >> $GITHUB_PATH
+#    - name: Verify EdgeDriver is accessible
+#      run: msedgedriver --version
     - name: Set up JDK 25
       uses: actions/setup-java@v5
       with:
