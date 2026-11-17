@@ -15,8 +15,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: write # Required to push the updated manifest
+#permissions:
+#  contents: write # Required to push the updated manifest
 
 jobs:
   build:
