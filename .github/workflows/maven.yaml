@@ -69,15 +69,15 @@ jobs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
-    - name: Update image tag in manifest
-      env:
-        NEW_TAG: ${{ steps.meta.outputs.tags }}
-      run: |
-        yq -i '.spec.template.spec.containers[0].image = "my-registry/my-app:" + strenv(NEW_TAG)' ../deployment/restaurantlisting-manifest.yaml
-    - name: Commit and push changes
-      uses: stefanzweifel/git-auto-commit-action@v7
-      with:
-        commit_message: "chore: update image tag to ${{ steps.meta.outputs.tags }}"
-        file_pattern: "../deployment/restaurantlisting-manifest.yaml"
+#    - name: Update image tag in manifest
+#      env:
+#        NEW_TAG: ${{ steps.meta.outputs.tags }}
+#      run: |
+#        yq -i '.spec.template.spec.containers[0].image = "my-registry/my-app:" + strenv(NEW_TAG)' ../deployment/restaurantlisting-manifest.yaml
+#    - name: Commit and push changes
+#      uses: stefanzweifel/git-auto-commit-action@v7
+#      with:
+#        commit_message: "chore: update image tag to ${{ steps.meta.outputs.tags }}"
+#        file_pattern: "../deployment/restaurantlisting-manifest.yaml"
 
         
