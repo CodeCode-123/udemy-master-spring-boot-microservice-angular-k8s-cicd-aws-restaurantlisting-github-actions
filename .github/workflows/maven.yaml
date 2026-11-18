@@ -66,13 +66,13 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
     - name: Update image tag in manifest
-      working-directory: ../../../../../deployment
+      working-directory: ../../../../deployment
       env:
         NEW_TAG: ${{ steps.meta.outputs.tags }}
       run: |
         yq -i '.spec.template.spec.containers[0].image = strenv(NEW_TAG)' restaurantlisting-manifest.yaml
     - name: Commit and push changes
-      working-directory: ../../../../../deployment
+      working-directory: ../../../../deployment
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
