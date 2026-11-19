@@ -34,7 +34,6 @@ jobs:
         java-version: '25'
         distribution: 'temurin'
         cache: maven
-#        settings-path: ${{ runner.temp }}/.m2
     - name: Build with Maven
       run: mvn clean package -DskipTests
     - name: Run Tests
@@ -73,7 +72,6 @@ jobs:
         NEW_TAG: ${{ steps.meta.outputs.tags }}
       run: |
         yq eval '(select(.kind == "Deployment") | .spec.template.spec.containers[] | select(.name == "restaurantlistingapp") | .image) = env(NEW_TAG)' -i restaurantlisting-manifest.yaml
-#        yq -i '.spec.template.spec.containers[0].image = strenv(NEW_TAG)' restaurantlisting-manifest.yaml
     - name: Commit and push changes
       working-directory: ../../../../../deployment
       run: |
