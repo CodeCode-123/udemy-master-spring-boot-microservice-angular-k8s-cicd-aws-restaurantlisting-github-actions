@@ -14,9 +14,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: write # Required to push the updated manifest
-
 jobs:
   build:
 
@@ -27,13 +24,17 @@ jobs:
       if: always()
       run: find "$GITHUB_WORKSPACE" -mindepth 1 -delete
     - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+    - name: Remove .git directory
+      run: rm -rf .git
     - name: Set up JDK 25
       uses: actions/setup-java@v5
       with:
         java-version: '25'
         distribution: 'temurin'
         cache: maven
-        settings-path: ${{ runner.temp }}/.m2
+#        settings-path: ${{ runner.temp }}/.m2
     - name: Build with Maven
       run: mvn clean package -DskipTests
     - name: Run Tests
@@ -71,7 +72,8 @@ jobs:
       env:
         NEW_TAG: ${{ steps.meta.outputs.tags }}
       run: |
-        yq -i '.spec.template.spec.containers[0].image = strenv(NEW_TAG)' restaurantlisting-manifest.yaml
+        yq eval '(select(.kind == "Deployment") | .spec.template.spec.containers[] | select(.name == "restaurantlistingapp") | .image) = env(NEW_TAG)' -i restaurantlisting-manifest.yaml
+#        yq -i '.spec.template.spec.containers[0].image = strenv(NEW_TAG)' restaurantlisting-manifest.yaml
     - name: Commit and push changes
       working-directory: ../../../../../deployment
       run: |
